@@ -1,0 +1,117 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000000;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.navbar-brand {
+  color: #39FF14 !important;
+  font-weight: bold;
+}
+.title {
+  text-align: left;
+  /*background: url('your-image.jpg') no-repeat center center/cover;*/
+  display: flex;
+  align-items: center;
+}
+.title h1 {
+  color: #1E90FF;
+  font-weight: bold;
+}
+.category-card {
+  background-color: #1a1a1a;
+  border: none;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: 0.3s;
+  height: 100%;
+}
+.category-card:hover {
+  background-color: #262626;
+  cursor: pointer;
+}
+.category-card i {
+  font-size: 40px;
+  color: #39FF14;
+  margin-bottom: 0.5rem;
+}
+
+.category-card:active{
+  background-color: #727272;
+}
+.highlight {
+  color: #00aaff;
+  font-weight: bold;
+}
+.price {
+  color: #a8ff60;
+  font-size: 1.5rem;
+}
+.btn-custom {
+  background-color: #a8ff60;
+  color: #000;
+  font-weight: bold;
+}
+.btn-custom:hover {
+  background-color: #8dd44f;
+  color: #000;
+}
+
+.controller-img{
+  width: auto;
+}
+
+.title-img{
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center 70%; /* shifts the focus lower */
+  display: block;
+}
+
+.title-wrapper {
+  position: relative;
+  display: inline-block; /* centers the wrapper inside text-center section */
+}
+
+.title-text {
+  position: absolute;
+  top: 50%;            /* vertically center */
+  left: 50%;           /* horizontally center */
+  transform: translate(0%, -50%);
+  color: #00aaff;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* adds contrast on image */
+  padding: 0 1rem;     /* small padding for mobile screens */
+}
+
+.img-chair,.img-tshirt,.img-custom-tshirt{
+  margin-bottom: 3px;
+}
+
+.img-chair{
+  height: 48px;
+  color: #39FF14;
+  margin-top: 6px;
+}
+
+.img-custom-tshirt,.img-tshirt{
+  height: 55px;
+}
+
+.img-tshirt{
+  color: #39FF14;
+}
+
+path{
+  height: 100%;
+}
+
+.img-txt{
+  margin-top: 3px;
+}
