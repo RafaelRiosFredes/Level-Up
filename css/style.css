@@ -123,3 +123,52 @@ path{
 .img-txt{
   margin-top: 3px;
 }
+
+/* FRANCISCA */
+
+h1 {
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+h2{
+  font-weight: 1000;
+  font-family: 'Roboto';
+  text-shadow:  0 2px 1px #000000,  4px 0px  #1E90FF;
+  margin-top: 200px; 
+  text-align: center;
+  font-size: 70px;
+  padding-bottom: 30px;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #1E90FF; 
+    font-weight: bold;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;   
+  gap: 40px;   
+  padding: 20px 20px;
+  background-color: #D3D3D3;
+
+}  
+
+.login-box {
+  text-align: center;
+  box-shadow:  10px 10px #39FF14;
+  width: 300px;
+  margin: 0 auto 40px auto;
+  padding: 55px;
+  border-radius: 6px;
+  background-color: #1E90FF;
+
+}
+
+/* FRANCISCA */
