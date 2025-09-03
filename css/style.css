@@ -5,7 +5,7 @@
 body {
   background-color: #000000;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .navbar-brand {
   color: #39FF14 !important;
@@ -38,6 +38,7 @@ body {
   font-size: 40px;
   color: #39FF14;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .category-card:active{
@@ -204,3 +205,7 @@ nav a:hover {
 }
 
 /* FRANCISCA */
+
+h1,h2{
+  font-family: 'Orbitron';
+}
