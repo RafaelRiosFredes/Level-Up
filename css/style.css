@@ -131,7 +131,7 @@ h1 {
   font-size: 20px;
 }
 
-h2{
+.titulo{
   font-weight: 1000;
   font-family: 'Roboto';
   text-shadow:  0 2px 1px #000000,  4px 0px  #1E90FF;
@@ -142,23 +142,14 @@ h2{
 }
 
 nav a {
-    color: #000000;
+    color: #727272;
     text-decoration: none;
 }
 
 nav a:hover {
-    color: #1E90FF; 
+    color: white; 
     font-weight: bold;
 }
-
-.main-header {
-  display: flex;
-  align-items: center;   
-  gap: 40px;   
-  padding: 20px 20px;
-  background-color: #D3D3D3;
-
-}  
 
 .login-box {
   text-align: center;
