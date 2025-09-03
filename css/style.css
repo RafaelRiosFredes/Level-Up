@@ -38,6 +38,7 @@ body {
   font-size: 40px;
   color: #39FF14;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .category-card:active{
