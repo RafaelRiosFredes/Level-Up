@@ -21,48 +21,60 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <h1><strong>Site name</strong></h1>
-        <nav>
-            <a href="">Home</a>
-            <a href="">Productos</a>
-            <a href="">Nosotros</a>
-            <a href="">Blogs</a>
-            <a href="">Contactos</a>
+    <script src="../main.js"></script>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container">
+            <a class="navbar-brand" href="#">LEVEL-UP GAMER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Juegos de Mesa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Accesorios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Consolas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+                    </ul>
+
+                    <div>
+                        🛒 Cart (0)
+                    </div>
+
+                </div>
+            </div>
         </nav>
-        <div>
-            🛒 Cart (0)
-        </div>
+    </header>
 
         <section class="title text-center">
             <div class="container title-wrapper">
               <img src="https://www.azernews.az/media/2023/11/27/2023_rog_zephyrus_duo_16_gx650_scenario_photo_01.jpg?v=1701092248" alt="gamer-notebook" class="title-img-contact">
             </div>
-          </section>
-
-    </header>
+        </section>
 
     <section>
-        <div>"""Logo"""</div>
+        <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k47vrgn7edas9gh55mz2qv09%2F1756905764_img_0.webp?st=2025-09-03T12%3A13%3A28Z&se=2025-09-09T13%3A13%3A28Z&sks=b&skt=2025-09-03T12%3A13%3A28Z&ske=2025-09-09T13%3A13%3A28Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=sdE2DbgFku9YIjET9Vnm8PUxzFPNMMnsrg1gdb4a85E%3D&az=oaivgprodscus" alt="logo-LevelUp" class="Logo-1">     
         <h2 class="titulo">Level Up</h2>
     </section>  
 
     <section class="login-box">
         <form>
             <fieldset>
-                <legend>Inicio de sesión</legend>
+                <legend class="Inicio-1">Inicio de sesión</legend>
 
-                <div>
+                <div class="email-entrada">
                     <label for="email">Correo electrónico</label><br>
                     <input type="email" id="email" name="email"><br>
                 </div>
 
-                <div>
+                <div class="constraseña-entrada">
                     <label for="contraseña">Contraseña</label><br>
                     <input type="password" id="contraseña" name="password"><br>
                 </div>
 
-                <button type="submit">Iniciar sesión</button>
+                <button class="boton-inicio"  type="submit">Iniciar </button>
             </fieldset>
         </form>
     </section>
