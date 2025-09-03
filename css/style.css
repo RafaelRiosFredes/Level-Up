@@ -5,7 +5,7 @@
 body {
   background-color: #000000;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .navbar-brand {
   color: #39FF14 !important;
@@ -38,6 +38,7 @@ body {
   font-size: 40px;
   color: #39FF14;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .category-card:active{
@@ -203,27 +204,4 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* FRANCISCA / PAGINA LOGIN */
-
-/* FRANCISCA / PAGINA REGISTRO USUARIO */
-
-/* .RegistroUsuario-box {
-  text-align: center;
-  box-shadow:  10px 10px #39FF14;
-  width: 300px;
-  margin: 0 auto 40px auto;
-  padding: 55px;
-  border-radius: 6px;
-  background-color: #1E90FF;
-  border-radius: 10px;
-}
-
-.boton-registro{
-  padding: 10px 20px;          
-  border: none;                
-  border-radius: 9px;         
-  cursor: pointer;
-}
-
-
-/* FRANCISCA / PAGINA REGISTRO USUARIO */
+/* FRANCISCA */
