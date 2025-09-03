@@ -205,3 +205,27 @@ nav a:hover {
 }
 
 /* FRANCISCA */
+
+.imagen-producto{
+  max-width: 100%;
+  height: 200px; /* límite razonable */
+  object-fit: contain; /* ajusta sin recortar */
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto; /* centra la imagen */
+}
+
+.producto{
+  background-color: #1a1a1a;
+  border: none;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 220px;
+  height: 350px;
+}
+
+.titulo-categoria{
+  color: #1E90FF;
+}
