@@ -126,7 +126,7 @@ path{
 
 /* FRANCISCA */
 
-h1,h2 {
+h1 {
   font-family: 'Roboto';
   font-size: 20px;
 }
@@ -164,47 +164,6 @@ nav a:hover {
 
 /* FRANCISCA */
 
-/*  SAVKAAAA */
-
-.producto {
-    background-color: #1a1a1a;
-    border: none;
-    text-align: center;
-    padding: 1.5rem;
-    border-radius: 10px;
-    transition: 0.3s;
-    height: 100%;
-  }
-
-.product-card:hover {
-  transform: scale(1.03);
+h1,h2{
+  font-family: 'Orbitron';
 }
-
-.imagen-producto {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.nombre-producto {
-  font-size: 1.2rem;
-  margin: 15px 0 5px;
-  font-weight: bold;
-}
-
-.precio-producto {
-  font-size: 1rem;
-  color: #27ae60;
-  margin-bottom: 15px;
-}
-
-.añadir-carrito {
-  background-color: #a8ff60;
-  color: #000;
-  font-weight: bold;
-
-}
-
-
-
-  
