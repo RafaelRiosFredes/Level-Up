@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #000000; /* Fondo negro */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #1a1a1a; /* Gris oscuro para diferenciar */
+  border-right: 2px solid #1E90FF; /* Azul eléctrico */
+}
+
+.sidebar .brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #39FF14; /* Verde neón */
+}
+
+.sidebar .nav-link {
+  color: #d3d3d3;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #262626;
+  color: #39FF14; /* Hover verde */
+}
+
+.sidebar .nav-link.active {
+  background-color: #1E90FF;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Main content */
+.main-content {
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content header {
+  background: #1a1a1a;
+  border-bottom: 2px solid #39FF14;
+}
+
+.main-content header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  color: #1E90FF; /* Azul eléctrico */
+}
+
+.main-content .bi-bell {
+  font-size: 1.4rem;
+  color: #39FF14; /* Verde neón */
+  cursor: pointer;
+}
+
+.content-box {
+  background: #1a1a1a;
+  border: 1px solid #1E90FF;
+  border-radius: 8px;
+  padding: 20px;
+  color: #ffffff;
+  transition: transform 0.2s;
+}
+
+.content-box:hover {
+  transform: scale(1.02);
+  border-color: #39FF14; /* Verde al hover */
+}
