@@ -126,7 +126,7 @@ path{
 
 /* FRANCISCA */
 
-h1 {
+.tituloo {
   font-family: 'Roboto';
   font-size: 20px;
 }
@@ -135,13 +135,12 @@ h1 {
   font-weight: 1000;
   font-family: 'Roboto';
   text-shadow:  0 2px 1px #000000,  4px 0px  #1E90FF;
-  margin-top: 200px; 
   text-align: center;
   font-size: 70px;
   padding-bottom: 30px;
 }
 
-nav a {
+nav a {    
     color: #727272;
     text-decoration: none;
 }
@@ -149,6 +148,41 @@ nav a {
 nav a:hover {
     color: white; 
     font-weight: bold;
+}
+
+.main-header{
+  text-align: ri;
+}
+
+.Logo-1{
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  
+}
+
+.email-entrada{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; 
+
+}
+
+.constraseña-entrada{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px; 
+
+}
+
+.Inicio-1{
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .login-box {
@@ -159,11 +193,22 @@ nav a:hover {
   padding: 55px;
   border-radius: 6px;
   background-color: #1E90FF;
-
+  border-radius: 10px;
 }
 
+<<<<<<< HEAD
 /* FRANCISCA */
 
 h1,h2{
   font-family: 'Orbitron';
 }
+=======
+.boton-inicio{
+  padding: 10px 20px;          
+  border: none;                
+  border-radius: 9px;         
+  cursor: pointer;
+}
+
+/* FRANCISCA */
+>>>>>>> 7b5670b8ecd85053a0296bcbccffe32dbb5a12cb
