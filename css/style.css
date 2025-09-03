@@ -197,13 +197,6 @@ nav a:hover {
   border-radius: 10px;
 }
 
-<<<<<<< HEAD
-/* FRANCISCA */
-
-h1,h2{
-  font-family: 'Orbitron';
-}
-=======
 .boton-inicio{
   padding: 10px 20px;          
   border: none;                
@@ -212,4 +205,7 @@ h1,h2{
 }
 
 /* FRANCISCA */
->>>>>>> 7b5670b8ecd85053a0296bcbccffe32dbb5a12cb
+
+h1,h2{
+  font-family: 'Orbitron';
+}
