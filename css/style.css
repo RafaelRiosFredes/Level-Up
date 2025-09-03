@@ -125,7 +125,7 @@ path{
   margin-top: 3px;
 }
 
-/* FRANCISCA */
+/* FRANCISCA / PAGINA LOGIN */
 
 .tituloo {
   font-family: 'Roboto';
@@ -205,13 +205,3 @@ nav a:hover {
 }
 
 /* FRANCISCA */
-
-h1,h2{
-  font-family: 'Orbitron';
-}
-
-.destacados{
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
