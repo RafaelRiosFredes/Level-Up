@@ -52,35 +52,25 @@ function renderProducts(products) {
 }
 
 function createProductElement(prod) {
-  // Esperamos campos: nombre_producto, descripcion_prod, precio, categoria, imagen
   const nombre = prod.nombre_producto || prod.nombre || "Producto";
-  const descripcion = prod.descripcion_prod || prod.descripcion || "";
   const precioRaw = prod.precio || prod.price || "";
-  const categoria = (prod.categoria || "").replace(/\s+/g, "-"); // clase
+  const categoria = (prod.categoria || "").replace(/\s+/g, "-");
   const imagen =
     prod.imagen ||
     prod.imagen_url ||
-    prod.image ||
     "https://via.placeholder.com/300x300?text=Sin+imagen";
 
-  // Crear article
   const article = document.createElement("article");
   article.className = `col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center producto-item ${categoria}`;
 
-
   const productoDiv = document.createElement("div");
   productoDiv.className = "producto";
-
-  const imgWrapper = document.createElement("div");
-  imgWrapper.className = "imagen-wrapper";
+  productoDiv.style.cursor = "pointer"; // opcional, mejora UX
 
   const img = document.createElement("img");
   img.className = "imagen-producto";
   img.src = imagen;
   img.alt = nombre;
-  img.onerror = () => {
-    img.src = "https://via.placeholder.com/300x300?text=Sin+imagen";
-  };
 
   const nombreDiv = document.createElement("div");
   nombreDiv.className = "nombre-producto";
@@ -91,16 +81,25 @@ function createProductElement(prod) {
   precioDiv.textContent = formatPrice(precioRaw);
 
   const descripcionDiv = document.createElement("div");
-  descripcionDiv.className = "descripcion-producto d-none"; // para mostrar, quitar d-none
-  descripcionDiv.textContent = descripcion;
+  descripcionDiv.className = "descripcion-producto d-none";
+  descripcionDiv.textContent = prod.descripcion_prod || prod.descripcion || "";
 
   const btn = document.createElement("a");
   btn.className = "btn btn-custom anadir-carrito";
   btn.href = "#";
   btn.textContent = "Añadir al carrito";
 
-  imgWrapper.appendChild(img);
-  productoDiv.appendChild(imgWrapper);
+  // Click en todo el div
+  productoDiv.addEventListener("click", (e) => {
+    // Evitar que el click en el botón "Añadir al carrito" redirija
+    if (e.target === btn) return;
+
+    // Redirigir a producto.html con ID seguro
+    const prodId = encodeURIComponent(String(prod.id).trim());
+    window.location.href = `producto.html?id=${prodId}`;
+  });
+
+  productoDiv.appendChild(img);
   productoDiv.appendChild(nombreDiv);
   productoDiv.appendChild(precioDiv);
   productoDiv.appendChild(descripcionDiv);
@@ -109,6 +108,8 @@ function createProductElement(prod) {
 
   return article;
 }
+
+
 
 function formatPrice(value) {
   // acepta número o string. Si es vacío retorna 'Consultar'

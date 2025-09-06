@@ -1,39 +1,45 @@
-function filtrarProductos(categoria) {
-    const productos = document.querySelectorAll('.producto-item');
+document.addEventListener("DOMContentLoaded", async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const idProducto = urlParams.get("id");
+  console.log("ID recibido:", idProducto);
 
-    productos.forEach(producto => {
-      if (categoria === 'todos' || producto.classList.contains(categoria)) {
-        producto.style.display = 'block';
-      } else {
-        producto.style.display = 'none';
-      }
-    });
+  if (!idProducto) return;
+
+  try {
+    const res = await fetch("../data/lista_productos.xlsx");
+    const ab = await res.arrayBuffer();
+    const data = new Uint8Array(ab);
+    const workbook = XLSX.read(data, { type: "array" });
+    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    const productos = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
+
+    console.log("Productos cargados:", productos);
+
+    const producto = productos.find(
+      (p) => String(p.id).trim() === String(idProducto).trim()
+    );
+    console.log("Producto encontrado:", producto);
+
+    if (!producto) {
+      alert("Producto no encontrado");
+      return;
+    }
+
+    document.querySelector(".highlight").textContent =
+      producto.nombre_producto || producto.nombre || "Nombre no disponible";
+    document.querySelector(".price").textContent =
+      producto.precio || "Precio no disponible";
+    document.querySelector(".desc").textContent =
+      producto.descripcion_prod ||
+      producto.descripcion ||
+      "Descripción no disponible";
+
+    const mainImg = document.querySelector(".img-fluid");
+    mainImg.src =
+      producto.imagen ||
+      producto.imagen_url ||
+      "https://via.placeholder.com/500x400";
+  } catch (err) {
+    console.error("Error cargando producto:", err);
   }
-
-  // Leer parámetro de la URL y aplicar filtro
-  document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const categoria = params.get('categoria') || 'todos'; // Si no hay, muestra todos
-    filtrarProductos(categoria);
-  });
-
-  producto = {
-    id: 1,
-    nombre: "Producto de ejemplo",
-    precio: 1000,
-    categoria: "juegos-mesa"
-
-  }
-
-  contenedor = document.getElementById("contenedor-productos");
-  const productosEnCarrito = [];
-
-
-  productosEnCarrito.filter(producto => producto.categoria == "juegos-mesa");
-  
-  const article = document.createElement("article");
-  article.classList.add("col-6", "col-md-3", "producto-item", "juegos-mesa");
-  const divProducto = document.createElement("div");
-  article.appendChild(divProducto);
-
-  contenedor.appendChild(li);
+});
