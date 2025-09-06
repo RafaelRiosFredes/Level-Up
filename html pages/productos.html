@@ -31,16 +31,56 @@
   </header>
 
   <main>
-    <section class="catg">
-      <div class="container te">
-        <h5 class="mb-4 titulo-categoria">INICIO > CATEGORÍAS > JUEGOS DE MESAS</h5>
+  <section class="catg">
+    <div class="container te">
+      <h5 class="mb-4 titulo-categoria">INICIO > CATEGORÍAS</h5>
 
-        <div id="contenedor-productos" class="row g-4">
+      <div class="row">
+        <!-- Columna de categorías -->
+        <aside class="col-md-3 mb-4">
+          <div class="list-group categorias">
+            <button class="list-group-item list-group-item-action active" data-categoria="all">
+              Todas las categorías
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="juegos-de-mesa">
+              Juegos de mesa
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="accesorios">
+              Accesorios
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="consolas">
+              Consolas
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="computadores-gamer">
+              Computadores Gamer
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="sillas-gamer">
+              Sillas Gamer
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="mouse">
+              Mouse
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="mousepad">
+              Mousepad
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="poleras-personalizadas">
+              Poleras Personalizadas
+            </button>
+            <button class="list-group-item list-group-item-action" data-categoria="poleras-gamer-personalizadas">
+              Poleras Gamer Personalizadas
+            </button>
+          </div>
+        </aside>
 
+        <!-- Columna de productos -->
+        <div class="col-md-9">
+          <div id="contenedor-productos" class="row g-4"></div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>

@@ -334,24 +334,37 @@ nav a:hover {
 /* FRANCISCA / PAGINA COSAS CURIOSAS */
 
 
-.imagen-producto{
-  max-width: 100%;
-  height: 200px; /* límite razonable */
-  object-fit: contain; /* ajusta sin recortar */
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto; /* centra la imagen */
-}
 
-.producto{
+
+.producto {
   background-color: #1a1a1a;
   border: none;
   text-align: center;
   padding: 1.5rem;
   border-radius: 10px;
   transition: 0.3s;
-  width: 220px;
   height: 350px;
+  max-width: 220px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.imagen-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 150px;
+  margin-bottom: 1rem;
+}
+
+.imagen-producto {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .titulo-categoria{
@@ -361,4 +374,71 @@ nav a:hover {
 .mousepad{
   height: 60px;
   margin-top: -3px;
+}
+
+.categorias .list-group-item {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.categorias .list-group-item:hover {
+  background-color: #262626;
+}
+
+.categorias .list-group-item.active {
+  background-color: #39FF14;
+  color: #000;
+  font-weight: bold;
+}
+
+.nombre-producto {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.precio-producto {
+  min-height: 30px;
+  font-weight: bold;
+}
+
+
+/* Barra de búsqueda */
+.search-bar input {
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.search-bar button {
+  border-radius: 20px;
+  color: #39FF14;
+  border-color: #39FF14;
+}
+
+.search-bar button:hover {
+  background-color: #39FF14;
+  color: #000;
+}
+
+/* Dropdown login hover */
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* se alinea justo debajo */
+}
+
+.dropdown-menu {
+  min-width: 200px;
+}
+
+.dropdown-item:hover {
+  background-color: #262626;
+}
+
+.search-bar {
+  width: 35%;   /* puedes jugar con 50%, 70%, etc */
+  max-width: 600px; /* límite para que no sea gigante en pantallas grandes */
 }

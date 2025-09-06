@@ -65,10 +65,14 @@ function createProductElement(prod) {
 
   // Crear article
   const article = document.createElement("article");
-  article.className = `col-6 col-md-3 producto-item ${categoria}`;
+  article.className = `col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center producto-item ${categoria}`;
+
 
   const productoDiv = document.createElement("div");
   productoDiv.className = "producto";
+
+  const imgWrapper = document.createElement("div");
+  imgWrapper.className = "imagen-wrapper";
 
   const img = document.createElement("img");
   img.className = "imagen-producto";
@@ -95,7 +99,8 @@ function createProductElement(prod) {
   btn.href = "#";
   btn.textContent = "Añadir al carrito";
 
-  productoDiv.appendChild(img);
+  imgWrapper.appendChild(img);
+  productoDiv.appendChild(imgWrapper);
   productoDiv.appendChild(nombreDiv);
   productoDiv.appendChild(precioDiv);
   productoDiv.appendChild(descripcionDiv);
@@ -128,3 +133,59 @@ function showNoProductsMessage(
   div.innerHTML = `<div class="alert alert-info">${msg}</div>`;
   contenedor.appendChild(div);
 }
+
+let allProducts = []; // guardamos todos los productos aquí
+
+function renderProducts(products) {
+  clearProducts();
+  if (!products || products.length === 0) {
+    showNoProductsMessage();
+    return;
+  }
+
+  allProducts = products; // guardar para poder filtrar después
+  filterProducts("all"); // mostrar todos al inicio
+}
+
+function filterProducts(categoria) {
+  clearProducts();
+  let filtered = [];
+
+  if (categoria === "all") {
+    filtered = allProducts;
+  } else {
+    filtered = allProducts.filter((p) => {
+      const cat = (p.categoria || "").toLowerCase().replace(/\s+/g, "-");
+      return cat === categoria;
+    });
+  }
+
+  if (filtered.length === 0) {
+    showNoProductsMessage("No hay productos en esta categoría.");
+    return;
+  }
+
+  filtered.forEach((prod) => {
+    const node = createProductElement(prod);
+    contenedor.appendChild(node);
+  });
+}
+
+// ---- evento para los botones de categoría ----
+document.addEventListener("DOMContentLoaded", () => {
+  fetchDefaultExcel(DEFAULT_EXCEL_URL);
+
+  document.querySelectorAll(".categorias .list-group-item").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // cambiar clase active
+      document
+        .querySelectorAll(".categorias .list-group-item")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // filtrar
+      const categoria = btn.getAttribute("data-categoria");
+      filterProducts(categoria);
+    });
+  });
+});

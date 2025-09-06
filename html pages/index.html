@@ -13,23 +13,46 @@
   <script src="../main.js"></script>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-      <div class="container">
-        <a class="navbar-brand" href="#">LEVEL-UP GAMER</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Juegos de Mesa</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Accesorios</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Consolas</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+  <div class="container">
+    <a class="navbar-brand" href="#">LEVEL-UP GAMER</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Barra de búsqueda -->
+      <form class="d-flex mx-auto search-bar">
+        <input class="form-control me-2" type="search" placeholder="Buscar en LEVEL-UP GAMER" aria-label="Buscar">
+        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+
+      <!-- Menú de navegación -->
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Juegos de Mesa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Accesorios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Consolas</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+
+        <!-- Dropdown de login -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button">
+            Hola, Inicia sesión
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end bg-dark text-white" aria-labelledby="loginDropdown">
+            <li><a class="dropdown-item text-white" href="login.html">Inicia sesión</a></li>
+            <li><a class="dropdown-item text-white" href="registro.html">Regístrate</a></li>
+            <li><a class="dropdown-item text-white" href="#">Mi cuenta</a></li>
+            <li><hr class="dropdown-divider bg-light"></li>
+            <li><a class="dropdown-item text-white" href="#">Puntos LevelUp</a></li>
           </ul>
-        </div>
-      </div>
-    </nav>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   </header>
 
   <section class="title text-center">
