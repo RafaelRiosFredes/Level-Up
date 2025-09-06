@@ -7,6 +7,11 @@ body {
   color: white;
   font-family: 'Roboto', sans-serif;
 }
+
+:root {
+  --card-height: 380px;
+}
+
 .navbar-brand {
   color: #39FF14 !important;
   font-weight: bold;
@@ -450,33 +455,101 @@ path{
 
 .producto {
   background-color: #1a1a1a;
-  border: none;
-  text-align: center;
-  padding: 1.5rem;
   border-radius: 10px;
-  transition: 0.3s;
-  height: 350px;
-  max-width: 220px;
+  padding: 0.8rem;
   width: 100%;
+  max-width: 220px;
+  height: var(--card-height);
+  box-sizing: border-box;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 60% 12% 12% 16%; /* imagen | nombre | precio | botón */
+  align-items: center;
+  justify-items: center;
+  transition: transform .12s ease;
 }
 
+.producto:hover { transform: translateY(-6px); }
+
 .imagen-wrapper {
-  flex: 1;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 150px;
-  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  padding: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
+@supports not (aspect-ratio: 1 / 1) {
+  .imagen-wrapper {
+    height: var(--image-box-size);
+  }
+}
 .imagen-producto {
+  width: auto;
+  height: 100%;          /* fuerza la imagen a llenar verticalmente el área */
   max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  object-fit: contain;   /* muestra la imagen completa sin recortarla */
+  display: block;
+}
+
+.nombre-producto {
+  width: 100%;
+  height: auto;                     /* deja que el contenido decida la altura */
+  display: -webkit-box;             /* soporte truncamiento multilinea */
+  -webkit-line-clamp: 1;            /* una sola línea */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;              /* permite que el texto se ajuste */
+  text-align: center;                 /* desde el inicio */
+  font-weight: 700;
+  padding: 0 6px;                   /* padding normal, no exagerado */
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 0.95rem;
+  padding-top: 7%;
+}
+
+.precio-producto {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #a8ff60;
+  padding: 0 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.anadir-carrito {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  :root { --card-height: 340px; }
+
+  .producto {
+    grid-template-rows: 55% 14% 14% 17%;
+    max-width: 100%;
+  }
+
+  .nombre-producto { font-size: 0.9rem; }
+  .precio-producto { font-size: 0.98rem; }
 }
 
 .titulo-categoria{
@@ -503,18 +576,6 @@ path{
 .categorias .list-group-item.active {
   background-color: #39FF14;
   color: #000;
-  font-weight: bold;
-}
-
-.nombre-producto {
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.precio-producto {
-  min-height: 30px;
   font-weight: bold;
 }
 
