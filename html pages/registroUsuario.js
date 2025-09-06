@@ -23,7 +23,7 @@ const comunasPorRegion = {
 
   regionSelect.addEventListener('change', () => {
     const regionSeleccionada = regionSelect.value;
-    comunaSelect.innerHTML = '<option value="">--Selecciona tu Comuna--</option>';
+    comunaSelect.innerHTML = '<option value="">Selecciona tu Comuna</option>';
 
     if (regionSeleccionada && comunasPorRegion[regionSeleccionada]) {
       comunasPorRegion[regionSeleccionada].forEach(comuna => {

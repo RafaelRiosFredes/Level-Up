@@ -177,6 +177,13 @@ nav a:hover {
 
 }
 
+#email{
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
 .constraseña-entrada{
   display: flex;
   flex-direction: column;
@@ -202,7 +209,8 @@ nav a:hover {
 }
 
 .boton-inicio{
-  padding: 10px 20px;          
+  margin: 25px;
+  padding: 3px 26px;          
   border: none;                
   border-radius: 9px;         
   cursor: pointer;
@@ -235,6 +243,9 @@ nav a:hover {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
 }
 #Nombre{
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -246,6 +257,9 @@ nav a:hover {
 }
 
 #email{
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -265,6 +279,9 @@ nav a:hover {
 }
 
 #contraseña{
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -276,11 +293,29 @@ nav a:hover {
 }
 
 #telefono{
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
   text-align: center;
 }
 
+#region{
+  padding: 7px;
+  margin: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+#comuna{
+  padding: 7px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+}
+
 .boton-registro{
-  padding: 10px 20px;          
+  margin: 25px;
+  padding: 3px 26px;          
   border: none;                
   border-radius: 9px;         
   cursor: pointer;
@@ -288,7 +323,15 @@ nav a:hover {
 
 /* FRANCISCA / PAGINA REGISTRO USUARIO */
 
+/* FRANCISCA / PAGINA COSAS CURIOSAS */
 
+.Foto-curiosidad{
+  border-radius: 20px;
+  margin: 40px;
+  height: 300px;
+}
+
+/* FRANCISCA / PAGINA COSAS CURIOSAS */
 
 
 .imagen-producto{
