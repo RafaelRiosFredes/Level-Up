@@ -139,24 +139,19 @@ path{
 .titulo{
   font-weight: 1000;
   font-family: 'Roboto';
-  text-shadow:  0 2px 1px #000000,  4px 0px  #1E90FF;
   text-align: center;
   font-size: 70px;
   padding-bottom: 30px;
+    text-shadow: 
+    0 0 40px #39FF14,
+    0 0 50px #1E90FF,
+    0 0 60px #1E90FF;
 }
 
-nav a {    
-    color: #727272;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: white; 
-    font-weight: bold;
-}
-
-.main-header{
-  text-align: ri;
+.Inicio-1{
+    text-transform: uppercase; 
+    color: #ffffff;
+    display: inline-block;
 }
 
 .Logo-1{
@@ -167,7 +162,6 @@ nav a:hover {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  
 }
 
 .email-entrada{
@@ -178,18 +172,31 @@ nav a:hover {
 }
 
 #email{
-  padding: 3px;
-  border: none;
+  background-color: #fffefe;
+  border: 2px solid #1E90FF;
   border-radius: 10px;
+  padding: 12px;
   text-align: center;
+  margin-bottom: 18px;
+  transition: 1s;
 }
 
 .constraseña-entrada{
   display: flex;
   flex-direction: column;
   margin-bottom: 5px; 
-
 }
+
+#contraseña{
+  background-color: #fffefe;
+  border: 2px solid #1E90FF;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 18px;
+  transition: 1s;
+}
+
 
 .Inicio-1{
   margin-bottom: 40px;
@@ -199,49 +206,65 @@ nav a:hover {
 
 .login-box {
   text-align: center;
-  box-shadow:  10px 10px #39FF14;
-  width: 300px;
+  box-shadow: 0 0 15px #39FF14, 0 0 30px #1E90FF;
+  width: 360px;
   margin: 0 auto 40px auto;
-  padding: 55px;
-  border-radius: 6px;
-  background-color: #1E90FF;
+  padding: 45px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.95);
   border-radius: 10px;
+  animation: flicker 2s infinite alternate;
 }
 
 .boton-inicio{
-  margin: 25px;
-  padding: 3px 26px;          
-  border: none;                
-  border-radius: 9px;         
+  width: 100px;
+  padding: 4px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #00ff00, #00ffff);
+  color: #0f0000;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ffff;
 }
+
 
 /* FRANCISCA / PAGINA LOGIN */
 
 /* FRANCISCA / PAGINA REGISTRO USUARIO */
 
 .RegistroUsuario-box{
-  width: 550px;     
-  margin: 40px auto; 
-  padding: 50px;
-  background: #1E90FF;   
-  box-shadow:  10px 10px #39FF14;     
   text-align: center;
-  border-radius: 10px;
+  box-shadow: 0 0 15px #39FF14, 0 0 30px #1E90FF;
+  width: 550px;
+  margin: 150px auto 50px auto; 
+  padding: 45px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.95);
+  animation: flicker 2s infinite alternate;
 }
 
 .Registro1{
-  font-weight: 600;
-  font-size: 25px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif  ;
+  font-family: 'Roboto';
+  text-align: center;
+  font-size: 40px;
+  padding-bottom: 30px;
+    text-shadow: 
+    0 0 40px #39FF14,
+    0 0 50px #1E90FF,
+    0 0 60px #1E90FF;
 }
 
 .Nombre-usuario-registro{
+  text-align: left; 
+  font-weight: bold;
   font-size: 17px;
+  margin-bottom: 10px;
   height: 70px;
   display: grid;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
 }
+
 #Nombre{
   padding: 3px;
   border: none;
@@ -250,7 +273,10 @@ nav a:hover {
 }
 
 .email-registro{
+  text-align: left; 
+  font-weight: bold;
   font-size: 17px;
+  margin-bottom: 10px;
   height: 70px;
   display: grid;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
@@ -264,7 +290,10 @@ nav a:hover {
 }
 
 .constraseña-registro{
+  text-align: left; 
+  font-weight: bold;
   font-size: 17px;
+  margin-bottom: 10px;
   height: 70px;
   display: grid;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
@@ -272,7 +301,10 @@ nav a:hover {
 
 
 .constraseña-registro-confirmacion{
+  text-align: left; 
+  font-weight: bold;
   font-size: 17px;
+  margin-bottom: 10px;
   height: 70px;
   display: grid;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
@@ -286,7 +318,10 @@ nav a:hover {
 }
 
 .telefono-registro{
+  text-align: left;
+  font-weight: bold;
   font-size: 17px;
+  margin-bottom: 10px;
   height: 70px;
   display: grid;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
@@ -313,22 +348,99 @@ nav a:hover {
   border-radius: 10px;
 }
 
+#region{  box-shadow: 0 0 20px #00ff00, 0 0 40px #1E90FF;
+}
+
+#comuna{  box-shadow: 0 0 20px #00ff00, 0 0 40px #1E90FF;
+}
+
 .boton-registro{
-  margin: 25px;
-  padding: 3px 26px;          
-  border: none;                
-  border-radius: 9px;         
+  width: 120px;
+  padding: 4px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #00ff00, #00ffff);
+  color: #0f0000;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ffff;
 }
 
 /* FRANCISCA / PAGINA REGISTRO USUARIO */
 
 /* FRANCISCA / PAGINA COSAS CURIOSAS */
 
-.Foto-curiosidad{
-  border-radius: 20px;
-  margin: 40px;
-  height: 300px;
+.noticias{
+  font-family: 'Roboto', sans-serif; 
+  font-size: 48px;                   
+  font-weight: bold;
+  text-align: center;                 
+  margin: 30px 30px;                      /* separación arriba y abajo */
+}
+
+.noticia-box {
+  background: #111;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 0 15px #39FF14, 0 0 30px #1E90FF;
+  transition: 0.3s;
+}
+
+.noticia-box:hover {
+  box-shadow: 0 0 25px #39FF14, 0 0 50px #1E90FF;
+} 
+
+.noticia-box img {
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 25px; 
+}
+
+.imagenes-container {
+  display: flex;           
+  gap: 20px;              
+  justify-content: center; 
+  margin-bottom: 20px;    
+}
+
+.img-lado {
+  width: 48%;            
+  border-radius: 10px;
+}
+
+.noticia-box h2 {
+  color: #39FF14;
+  font-size: 22px;
+  margin-bottom: 15px; 
+  text-align: center; 
+  text-shadow: 0 0 3px #1E90FF;
+}
+
+.noticia-box p {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 25px; 
+  text-align: justify; 
+}
+
+.boton-noticia {
+  padding: 9px 15px;
+  background-color: #ffffff;
+  color: #00aaff;     
+  border-radius: 80px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+  
+}
+
+.boton-noticia:hover {
+  background-color: #39FF14;
+  color: #000;
 }
 
 /* FRANCISCA / PAGINA COSAS CURIOSAS */
