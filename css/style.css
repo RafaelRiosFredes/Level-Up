@@ -357,3 +357,8 @@ nav a:hover {
 .titulo-categoria{
   color: #1E90FF;
 }
+
+.mousepad{
+  height: 60px;
+  margin-top: -3px;
+}
