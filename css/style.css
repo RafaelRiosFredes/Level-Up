@@ -432,6 +432,7 @@ path{
 }
 
 .boton-noticia {
+  float: right;
   padding: 9px 15px;
   background-color: #ffffff;
   color: #00aaff;     
