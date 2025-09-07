@@ -1,4 +1,4 @@
-// Eleccions de Comuna por Region //
+// Elección de Comuna por Región
 const comunasPorRegion = {
   Ari: ["Arica", "Camarones", "General Lagos", "Putre"],
   Tar: ["Alto Hospicio", "Camiña", "Colchane", "Huara", "Iquique", "Pica", "Pozo Almonte"],
@@ -18,19 +18,84 @@ const comunasPorRegion = {
   Mag: ["Antártica", "Cabo de Hornos", "Laguna Blanca", "Natales", "Porvenir", "Primavera", "Punta Arenas", "Río Verde", "San Gregorio", "Timaukel", "Torres del Paine"],
 };
 
-  const regionSelect = document.getElementById('region');
-  const comunaSelect = document.getElementById('comuna');
+const regionSelect = document.getElementById('region');
+const comunaSelect = document.getElementById('comuna');
 
-  regionSelect.addEventListener('change', () => {
-    const regionSeleccionada = regionSelect.value;
-    comunaSelect.innerHTML = '<option value="">Selecciona tu Comuna</option>';
+regionSelect.addEventListener('change', () => {
+  const regionSeleccionada = regionSelect.value;
+  comunaSelect.innerHTML = '<option value="">Selecciona tu Comuna</option>';
 
-    if (regionSeleccionada && comunasPorRegion[regionSeleccionada]) {
-      comunasPorRegion[regionSeleccionada].forEach(comuna => {
-        const option = document.createElement('option');
-        option.value = comuna.toLowerCase().replace(/\s+/g, '-');
-        option.textContent = comuna;
-        comunaSelect.appendChild(option);
-      });
-    }
-  });
+  if (regionSeleccionada && comunasPorRegion[regionSeleccionada]) {
+    comunasPorRegion[regionSeleccionada].forEach(comuna => {
+      const option = document.createElement('option');
+      option.value = comuna.toLowerCase().replace(/\s+/g, '-');
+      option.textContent = comuna;
+      comunaSelect.appendChild(option);
+    });
+  }
+});
+
+const formRegistro = document.querySelector(".RegistroUsuario-box form");
+
+formRegistro.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("Nombre").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const contraseña = document.getElementById("contraseña").value.trim();
+  const confirmar = document.getElementById("contraseña-Confirmacion").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const region = document.getElementById("region").value;
+  const comuna = document.getElementById("comuna").value;
+  const fechaNacimiento = document.getElementById("fechaNacimiento")?.value;
+
+  if (!nombre || !email || !contraseña || !confirmar || !region || !comuna || !fechaNacimiento) {
+    alert("Completa todos los campos");
+    return;
+  }
+
+  if (contraseña !== confirmar) {
+    alert("Las contraseñas no coinciden");
+    return;
+  }
+
+  // Validar mayor de 18 años
+  const hoy = new Date();
+  const nacimiento = new Date(fechaNacimiento);
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const m = hoy.getMonth() - nacimiento.getMonth();
+  if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+  if (edad < 18) {
+    alert("Debes ser mayor de 18 años para registrarte");
+    return;
+  }
+
+  // Obtener usuarios guardados en LocalStorage
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  if (usuarios.some(u => u.email === email)) {
+    alert("Este correo ya está registrado");
+    return;
+  }
+
+  // Calcular descuento para Duoc
+  let descuento = 0;
+  if (email.toLowerCase().endsWith("@duoc.cl")) {
+    descuento = 20;
+  }
+
+  // Guardar usuario
+  usuarios.push({ nombre, email, contraseña, telefono, region, comuna, descuento });
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  // Mensaje especial
+  if (descuento === 20) {
+    alert("¡Estudiante Duoc!! Tienes 20% de descuento de por vida!!");
+  } else {
+    alert("Registro exitoso!");
+  }
+
+  formRegistro.reset();
+});
