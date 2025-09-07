@@ -104,6 +104,20 @@ body {
   padding: 0 1rem;     /* small padding for mobile screens */
 }
 
+@media (max-width: 768px) {
+  .title-text {
+    position: static;       /* ya no es absoluto */
+    transform: none;        /* elimina desplazamiento */
+    margin-top: 1rem;       /* pequeño espacio sobre la imagen */
+    font-size: 1.5rem;      /* reduce tamaño para móviles */
+    text-align: center;
+  }
+
+  .title-wrapper {
+    display: block;         /* full width en móviles */
+  }
+}
+
 .img-chair,.img-tshirt,.img-custom-tshirt{
   margin-bottom: 3px;
 }
@@ -611,8 +625,66 @@ path{
 .dropdown-item:hover {
   background-color: #262626;
 }
-
 .search-bar {
-  width: 35%;   /* puedes jugar con 50%, 70%, etc */
-  max-width: 600px; /* límite para que no sea gigante en pantallas grandes */
+  width: 35%;
+  max-width: 600px;
+  position: relative; /* IMPORTANTE: hace que las sugerencias se posicionen respecto al form */
+}
+
+/* Cuando la pantalla sea menor a 768px (Bootstrap md) */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%;       /* ocupar todo el ancho disponible */
+    max-width: none;   /* quitar limitante */
+    margin-bottom: 1rem; /* opcional: espacio debajo */
+  }
+
+  .search-bar input {
+    flex: 1;           /* input ocupa todo el espacio disponible dentro del form */
+  }
+
+  .search-bar button {
+    margin-left: 0.5rem; /* separa un poco el botón del input */
+  }
+}
+
+.search-bar ul.list-group {
+  top: 100%;           /* justo debajo del input */
+  left: 0;
+  z-index: 2000;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;       /* se muestra solo cuando hay coincidencias */
+}
+
+/* Alinea el ícono y el texto del carrito */
+.nav-link-carrito {
+  display: inline-flex;
+  align-items: center; /* centra verticalmente */
+  gap: 5px;            /* espacio entre icono y texto */
+}
+
+/* Haz que el ícono del carrito sea el contenedor relativo */
+/* Ícono del carrito como contenedor relativo */
+.nav-link-carrito i.bi-cart3 {
+  font-size: 22px;
+  position: relative;
+  display: inline-block; /* importante para que top/right funcionen bien */
+}
+
+/* Badge posicionado sobre el ícono */
+#cantidad-carrito {
+  position: absolute;
+  top: -6px;      /* mueve el badge un poco hacia arriba */
+  right: -6px;    /* mueve el badge un poco hacia la derecha */
+  font-size: 0.7rem;
+  padding: 0.25em 0.4em;
+  border-radius: 50%;
+  background-color: #39FF14;
+  color: black;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  min-width: 18px;
+  height: 18px;
 }

@@ -1,11 +1,31 @@
-const DEFAULT_EXCEL_URL = "../data/lista_productos.xlsx"; // <-- Ajusta si el Excel por defecto está en otra ruta
+const DEFAULT_EXCEL_URL = "../data/lista_productos.xlsx";
 const contenedor = document.getElementById("contenedor-productos");
-const fileInput = document.getElementById("excel-file");
+
+let allProducts = []; // guardamos todos los productos aquí
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Intentar cargar el Excel por defecto
   fetchDefaultExcel(DEFAULT_EXCEL_URL);
 
+  // eventos de categorías
+  document.querySelectorAll(".categorias .list-group-item").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document
+        .querySelectorAll(".categorias .list-group-item")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const categoria = btn.getAttribute("data-categoria");
+      filterProducts(categoria);
+    });
+  });
+
+  // búsqueda por query string (desde busqueda.js → productos.html?busqueda=xxx)
+  const params = new URLSearchParams(window.location.search);
+  const search = params.get("busqueda");
+  if (search) {
+    const query = normalize(search);
+    filterBySearch(query);
+  }
 });
 
 async function fetchDefaultExcel(url) {
@@ -27,28 +47,26 @@ function handleWorkbook(arrayBuffer) {
     const firstSheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[firstSheetName];
     const json = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
-    renderProducts(json);
+
+    allProducts = json;
+
+    // 👇 revisar si la URL trae parámetro de búsqueda
+    const params = new URLSearchParams(window.location.search);
+    const search = params.get("busqueda");
+    if (search) {
+      filterBySearch(normalize(search));
+    } else {
+      filterProducts("all"); // solo mostrar todo si NO hay búsqueda
+    }
   } catch (err) {
     console.error("Error procesando workbook:", err);
     showNoProductsMessage("Error al procesar el archivo.");
   }
 }
 
+
 function clearProducts() {
   contenedor.innerHTML = "";
-}
-
-function renderProducts(products) {
-  clearProducts();
-  if (!products || products.length === 0) {
-    showNoProductsMessage();
-    return;
-  }
-
-  products.forEach((prod) => {
-    const node = createProductElement(prod);
-    contenedor.appendChild(node);
-  });
 }
 
 function createProductElement(prod) {
@@ -65,7 +83,7 @@ function createProductElement(prod) {
 
   const productoDiv = document.createElement("div");
   productoDiv.className = "producto";
-  productoDiv.style.cursor = "pointer"; // opcional, mejora UX
+  productoDiv.style.cursor = "pointer";
 
   const img = document.createElement("img");
   img.className = "imagen-producto";
@@ -89,63 +107,16 @@ function createProductElement(prod) {
   btn.href = "#";
   btn.textContent = "Añadir al carrito";
 
-  // Click en todo el div
   productoDiv.addEventListener("click", (e) => {
-    // Evitar que el click en el botón "Añadir al carrito" redirija
-    if (e.target === btn) return;
-
-    // Redirigir a producto.html con ID seguro
+    if (e.target === btn) return; // evitar conflicto con botón
     const prodId = encodeURIComponent(String(prod.id).trim());
     window.location.href = `producto.html?id=${prodId}`;
   });
 
-  productoDiv.appendChild(img);
-  productoDiv.appendChild(nombreDiv);
-  productoDiv.appendChild(precioDiv);
-  productoDiv.appendChild(descripcionDiv);
-  productoDiv.appendChild(btn);
+  productoDiv.append(img, nombreDiv, precioDiv, descripcionDiv, btn);
   article.appendChild(productoDiv);
 
   return article;
-}
-
-
-
-function formatPrice(value) {
-  // acepta número o string. Si es vacío retorna 'Consultar'
-  if (value === null || value === undefined || value === "") return "Consultar";
-  // si viene con símbolos, limpiar y parsear
-  let n = String(value)
-    .replace(/[^\d,-]/g, "")
-    .replace(",", ".");
-  let num = Number(n);
-  if (isNaN(num)) return String(value); // devolver tal cual si no es parseable
-  // redondear a entero y formatear con puntos de miles
-  const entero = Math.round(num);
-  return "$" + entero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
-function showNoProductsMessage(
-  msg = "No se encontraron productos."
-) {
-  clearProducts();
-  const div = document.createElement("div");
-  div.className = "col-12";
-  div.innerHTML = `<div class="alert alert-info">${msg}</div>`;
-  contenedor.appendChild(div);
-}
-
-let allProducts = []; // guardamos todos los productos aquí
-
-function renderProducts(products) {
-  clearProducts();
-  if (!products || products.length === 0) {
-    showNoProductsMessage();
-    return;
-  }
-
-  allProducts = products; // guardar para poder filtrar después
-  filterProducts("all"); // mostrar todos al inicio
 }
 
 function filterProducts(categoria) {
@@ -166,27 +137,55 @@ function filterProducts(categoria) {
     return;
   }
 
-  filtered.forEach((prod) => {
-    const node = createProductElement(prod);
-    contenedor.appendChild(node);
-  });
+  filtered.forEach((prod) =>
+    contenedor.appendChild(createProductElement(prod))
+  );
 }
 
-// ---- evento para los botones de categoría ----
-document.addEventListener("DOMContentLoaded", () => {
-  fetchDefaultExcel(DEFAULT_EXCEL_URL);
+function filterBySearch(query) {
+  clearProducts();
+  const filtered = allProducts.filter((p) =>
+    normalize(p.nombre_producto || p.nombre).includes(query)
+  );
 
-  document.querySelectorAll(".categorias .list-group-item").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // cambiar clase active
-      document
-        .querySelectorAll(".categorias .list-group-item")
-        .forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+  if (filtered.length === 0) {
+    showNoProductsMessage("No se encontraron productos para tu búsqueda.");
+    return;
+  }
 
-      // filtrar
-      const categoria = btn.getAttribute("data-categoria");
-      filterProducts(categoria);
-    });
-  });
-});
+  filtered.forEach((prod) =>
+    contenedor.appendChild(createProductElement(prod))
+  );
+}
+
+function formatPrice(value) {
+  if (!value) return "Consultar";
+  let n = String(value)
+    .replace(/[^\d,-]/g, "")
+    .replace(",", ".");
+  const num = Number(n);
+  if (isNaN(num)) return String(value);
+  return (
+    "$" +
+    Math.round(num)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  );
+}
+
+function showNoProductsMessage(msg = "No se encontraron productos.") {
+  clearProducts();
+  const div = document.createElement("div");
+  div.className = "col-12";
+  div.innerHTML = `<div class="alert alert-info">${msg}</div>`;
+  contenedor.appendChild(div);
+}
+
+function normalize(str) {
+  return str
+    ? str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+    : "";
+}

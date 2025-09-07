@@ -83,3 +83,19 @@ body {
   transform: scale(1.02);
   border-color: #39FF14; /* Verde al hover */
 }
+
+.btn-custom {
+  background-color: #1E90FF; /* Azul eléctrico */
+  color: #fff; /* Texto blanco */
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-custom:hover {
+  background-color: #39FF14; /* Verde neón al hover */
+  color: #000; /* Texto negro para contrastar */
+  transform: scale(1.05);
+}
