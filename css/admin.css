@@ -80,7 +80,7 @@ body {
 }
 
 .content-box:hover {
-  transform: scale(1.02);
+  transform: scale(1.005);
   border-color: #39FF14; /* Verde al hover */
 }
 

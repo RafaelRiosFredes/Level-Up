@@ -107,6 +107,18 @@ function createProductElement(prod) {
   btn.href = "#";
   btn.textContent = "Añadir al carrito";
 
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const producto = {
+      nombre,
+      precio: parseInt(String(precioRaw).replace(/[^\d]/g, "")) || 0,
+      cantidad: 1, // en productos.html no hay input, así que siempre 1
+      imagen: imagen,
+    };
+    agregarAlCarrito(producto);
+  });
+
+
   productoDiv.addEventListener("click", (e) => {
     if (e.target === btn) return; // evitar conflicto con botón
     const prodId = encodeURIComponent(String(prod.id).trim());
