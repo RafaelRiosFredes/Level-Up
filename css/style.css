@@ -730,3 +730,29 @@ path{
   min-width: 18px;
   height: 18px;
 }
+
+.estrellas {
+  font-size: 1.8rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.estrellas i {
+  transition: color 0.3s;
+}
+
+.estrellas i.activa {
+  color: gold;
+}
+
+.estrellas i {
+  font-size: 2rem;
+  color: #444; /* Estrellas inactivas */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.estrellas i.hover,
+.estrellas i.selected {
+  color: #FFD700; /* Dorado para estrellas activas */
+}
