@@ -434,6 +434,22 @@ path{
   transition: 0.3s;
 }
 
+
+.imagen-noticia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 49px;
+  margin-bottom: 24px;
+}
+
+.imagen-noticia img {
+  width: 250px;          /* mismo ancho */
+  height: 150px;         /* mismo alto */
+  object-fit: cover;     /* recorta la imagen para llenar el espacio */
+  border-radius: 8px;
+}
+
 .noticia-box:hover {
   box-shadow: 0 0 25px #39FF14, 0 0 50px #1E90FF;
 } 
