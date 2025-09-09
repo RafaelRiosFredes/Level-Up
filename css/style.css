@@ -756,3 +756,47 @@ path{
 .estrellas i.selected {
   color: #FFD700; /* Dorado para estrellas activas */
 }
+
+.contacto-box {
+  text-align: center;
+  box-shadow: 0 0 15px #39FF14, 0 0 30px #1E90FF;
+  width: 500px;
+  margin: 50px auto 40px auto;
+  padding: 45px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.95);
+  animation: flicker 2s infinite alternate;
+}
+
+.caja-contacto {
+  border: none;
+}
+
+.caja-contacto label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+  display: block;
+}
+
+#nombre, #correo, #contenido {
+  background-color: #fffefe;
+  border: 2px solid #1E90FF;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 18px;
+  width: 100%;
+  transition: 1s;
+}
+
+#contenido {
+  text-align: left;
+  resize: none;
+}
+
+textarea {
+  overflow: hidden;
+  resize: none; /* Evita que el usuario lo redimensione manualmente */
+  transition: height 0.2s ease;
+}

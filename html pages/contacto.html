@@ -67,36 +67,31 @@
 
   <!-- Formulario de contacto -->
   <main>
-    <section class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4 text-primary">Formulario de Contacto</h2>
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-6">
-            <div class="card bg-dark text-white shadow">
-              <div class="card-body p-4">
-                <form>
-                  <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
-                  </div>
-                  <div class="mb-3">
-                    <label for="correo" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com">
-                  </div>
-                  <div class="mb-3">
-                    <label for="contenido" class="form-label">Contenido</label>
-                    <textarea class="form-control" id="contenido" rows="4" placeholder="Escribe tu mensaje"></textarea>
-                  </div>
-                  <div class="d-grid">
-                    <button type="submit" class="btn btn-custom">Enviar Mensaje</button>
-                  </div>
-                </form>
-              </div>
-            </div>
+    <section class="contacto-box">
+      <form>
+        <fieldset class="caja-contacto">
+          <legend class="Inicio-1">Contáctanos</legend>
+    
+          <div class="email-entrada">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
           </div>
-        </div>
-      </div>
+    
+          <div class="email-entrada">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+          </div>
+    
+          <div class="email-entrada">
+            <label for="contenido">Contenido</label>
+            <textarea id="contenido" name="contenido" rows="4" placeholder="Escribe tu mensaje"></textarea>
+          </div>
+    
+          <button type="submit" class="boton-inicio">Enviar</button>
+        </fieldset>
+      </form>
     </section>
+    
   </main>
 
   <footer class="bg-black text-white text-center py-4">
@@ -109,5 +104,6 @@
   <script src="../scripts/productos.js"></script>
   <script src="../scripts/busqueda.js"></script>
   <script src="../scripts/carroCompras.js"></script>
+  <script src="../scripts/contacto.js"></script>
 </body>
 </html>
