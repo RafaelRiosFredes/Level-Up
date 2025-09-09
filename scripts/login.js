@@ -20,16 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
       (u) => u.email === email && u.contraseña === contraseña
     );
 
-    if (usuario) {
-      alert(`¡Bienvenido, ${usuario.nombre}!`);
-      sessionStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+  if (usuario) {
+    alert(`¡Bienvenido, ${usuario.nombre}!`);
 
-      // Redirigir luego de 1 segundo
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1000);
-    } else {
+    // Guardar en localStorage para usarlo en index y otras páginas
+    localStorage.setItem("usuario", usuario.nombre);
+
+    // También puedes guardar todo el objeto si quieres
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+
+    // Redirigir luego de 1 segundo
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1000);
+
+      } else {
+      // Mensaje de error si usuario no existe o contraseña incorrecta
       alert("Correo o contraseña incorrectos o usuario no registrado.");
     }
+  
   });
 });
+
