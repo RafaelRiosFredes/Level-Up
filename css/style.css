@@ -308,6 +308,24 @@ path{
   text-align: center;
 }
 
+.constraseña-registro-confirmacion{
+  text-align: left; 
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 10px;
+  height: 70px;
+  display: grid;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
+#contraseña-Confirmacion{
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
 .constraseña-registro{
   text-align: left; 
   font-weight: bold;
@@ -318,16 +336,6 @@ path{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
 }
 
-
-.constraseña-registro-confirmacion{
-  text-align: left; 
-  font-weight: bold;
-  font-size: 17px;
-  margin-bottom: 10px;
-  height: 70px;
-  display: grid;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
-}
 
 #contraseña{
   padding: 3px;
@@ -373,6 +381,12 @@ path{
 #comuna{  box-shadow: 0 0 20px #00ff00, 0 0 40px #1E90FF;
 }
 
+.fechaNacimiento-registro{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
 .boton-registro{
   width: 120px;
   padding: 4px;
@@ -397,8 +411,18 @@ path{
   margin: 30px 30px;                      /* separación arriba y abajo */
 }
 
+.noticias_gamer{
+  font-size: 50px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 200px; 
+  text-shadow: 2px 2px 5px #0f0, -2px -2px 5px #00f;
+
+}
+
 .noticia-box {
-  background: #111;
+  background: #000;
   border-radius: 15px;
   padding: 20px;
   margin: 30px auto;
@@ -448,7 +472,7 @@ path{
 .boton-noticia {
   float: right;
   padding: 9px 15px;
-  background-color: #ffffff;
+  background-color: #000;
   color: #00aaff;     
   border-radius: 80px;
   text-decoration: none;
