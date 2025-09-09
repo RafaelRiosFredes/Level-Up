@@ -1,5 +1,10 @@
 // FUNCIONES GENERALES DEL CARRITO
 
+// ✅ Función para separar miles con punto (formato CLP)
+function formatearPrecio(precio) {
+  return precio.toLocaleString("es-CL"); // Ej: 15990 → 15.990
+}
+
 // Actualiza el badge del carrito en el navbar
 function actualizarBadgeCarrito() {
   const badge = document.getElementById("cantidad-carrito");
@@ -33,14 +38,18 @@ function mostrarCarrito() {
       <img src="${item.imagen}" class="rounded me-3" alt="${item.nombre}" style="width:100px;">
       <div class="flex-grow-1">
         <h5 class="mb-1">${item.nombre}</h5>
-        <p class="text-muted small">Precio unitario: $${item.precio}</p>
+        <p class="text-muted small">Precio unitario: $${formatearPrecio(item.precio)}</p>
         <div class="d-flex align-items-center">
-          <button class="btn btn-sm btn-outline-light" onclick="cambiarCantidad(${index}, -1)"><i class="bi bi-dash"></i></button>
+          <button class="btn btn-sm btn-outline-light" onclick="cambiarCantidad(${index}, -1)">
+            <i class="bi bi-dash"></i>
+          </button>
           <input type="number" value="${item.cantidad}" min="1" class="form-control mx-1 text-center" style="width:60px;" disabled>
-          <button class="btn btn-sm btn-outline-light" onclick="cambiarCantidad(${index}, 1)"><i class="bi bi-plus"></i></button>
+          <button class="btn btn-sm btn-outline-light" onclick="cambiarCantidad(${index}, 1)">
+            <i class="bi bi-plus"></i>
+          </button>
         </div>
       </div>
-      <p class="price me-3">$${item.precio * item.cantidad}</p>
+      <p class="price me-3">$${formatearPrecio(item.precio * item.cantidad)}</p>
       <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${index})">
         <i class="bi bi-trash"></i>
       </button>
@@ -48,7 +57,7 @@ function mostrarCarrito() {
     lista.appendChild(div);
   });
 
-  document.getElementById("totalCarrito").innerText = "$" + total;
+  document.getElementById("totalCarrito").innerText = "$" + formatearPrecio(total);
 }
 
 // Elimina un producto del carrito
@@ -98,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnAgregar.addEventListener("click", (e) => {
       e.preventDefault();
       const nombre = document.querySelector("h1.highlight").innerText || "Producto";
-      const precioStr = document.querySelector(".price").innerText.replace("$", "").replace(".", "");
+      const precioStr = document.querySelector(".price").innerText.replace("$", "").replace(/\./g, "");
       const precio = parseInt(precioStr) || 0;
       const cantidad = parseInt(document.getElementById("cantidad").value) || 1;
       const imagen = document.querySelector(".img-fluid").src || "";

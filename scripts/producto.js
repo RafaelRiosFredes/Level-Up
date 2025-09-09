@@ -128,4 +128,38 @@ function mostrarRelacionados(productoActual, todos) {
 
     contenedor.appendChild(col);
   });
+
+ 
 }
+
+// ⭐ Calificación con estrellas
+document.addEventListener("DOMContentLoaded", () => {
+  const estrellas = document.querySelectorAll("#estrellas i");
+  let valorSeleccionado = 0;
+
+  estrellas.forEach((estrella, index) => {
+    // Hover: mostrar color hasta esa estrella
+    estrella.addEventListener("mouseover", () => {
+      estrellas.forEach((e, i) => {
+        e.classList.toggle("hover", i <= index);
+      });
+    });
+
+    // Salir del hover: quitar efecto
+    estrella.addEventListener("mouseout", () => {
+      estrellas.forEach((e, i) => {
+        e.classList.remove("hover");
+      });
+    });
+
+    // Click: marcar como seleccionadas
+    estrella.addEventListener("click", () => {
+      valorSeleccionado = index + 1;
+      estrellas.forEach((e, i) => {
+        e.classList.toggle("selected", i < valorSeleccionado);
+      });
+
+      console.log(`⭐ Calificación seleccionada: ${valorSeleccionado}`);
+    });
+  });
+});
